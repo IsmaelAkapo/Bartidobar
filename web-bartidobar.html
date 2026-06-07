@@ -812,6 +812,21 @@
     margin: 0 auto 2rem;
   }
 
+  /* IMAGE HARMONY — filtro consistente en todas las fotos */
+  .gallery-item img,
+  .sabor-card img,
+  .about-photo img,
+  .ig-mini-grid-item img {
+    filter: saturate(1.25) contrast(1.08) brightness(1.02);
+    transition: filter 0.4s, transform 0.5s;
+  }
+  .gallery-item:hover img,
+  .sabor-card:hover img,
+  .about-photo:hover img,
+  .ig-mini-grid-item:hover img {
+    filter: saturate(1.4) contrast(1.12) brightness(1.05);
+  }
+
   /* ANIMATIONS — GSAP handles opacity/transform, CSS solo para fallback */
   .fade-up { opacity: 1; }
   .stagger-item { opacity: 1; }
