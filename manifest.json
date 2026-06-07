@@ -1,0 +1,45 @@
+{
+  "name": "Bartido — Shakes & Smoothies",
+  "short_name": "Bartido",
+  "description": "Shakes y smoothies preparados al momento con fruta fresca. 100% natural.",
+  "start_url": "/web-bartidobar.html",
+  "display": "standalone",
+  "background_color": "#0a0f0a",
+  "theme_color": "#2ECC71",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "categories": ["food", "lifestyle", "health"],
+  "icons": [
+    {
+      "src": "assets/instagram/profile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/instagram/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/instagram/post-5.jpg",
+      "sizes": "1080x1080",
+      "type": "image/jpeg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver galería",
+      "url": "/web-bartidobar.html#galeria",
+      "description": "Fotos de nuestros shakes y smoothies"
+    },
+    {
+      "name": "Contacto",
+      "url": "/web-bartidobar.html#contacto",
+      "description": "Escríbenos"
+    }
+  ]
+}

@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bartido — Shakes & Smoothies frescos al momento</title>
+
+<!-- SEO -->
+<meta name="description" content="Bartido: shakes y smoothies preparados al momento con fruta fresca en Calle San Onofre 2, Madrid. 100% natural, sin aditivos. Síguenos en @bartidobar.">
+<meta name="keywords" content="shakes Madrid, smoothies Madrid, batidos naturales Madrid, San Onofre, bartido, bartidobar, bebidas saludables Madrid, fruta fresca Madrid">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Bartido">
+<link rel="canonical" href="https://bartidobar.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bartidobar.com/">
+<meta property="og:title" content="Bartido — Shakes & Smoothies frescos al momento">
+<meta property="og:description" content="Shakes y smoothies preparados al momento con fruta fresca. 100% natural, sin aditivos. ¡Síguenos en Instagram!">
+<meta property="og:image" content="assets/instagram/post-5.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Bartido">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bartido — Shakes & Smoothies">
+<meta name="twitter:description" content="Preparados al momento con fruta fresca. 100% natural.">
+<meta name="twitter:image" content="assets/instagram/post-5.jpg">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2ECC71">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bartido">
+<link rel="apple-touch-icon" href="assets/instagram/profile.jpg">
+
+<!-- Schema Markup: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Bartido",
+  "alternateName": "Bartido Bar",
+  "description": "Shakes y smoothies preparados al momento con fruta fresca en Madrid. 100% natural, sin aditivos.",
+  "url": "https://bartidobar.com",
+  "logo": "assets/instagram/profile.jpg",
+  "image": [
+    "assets/instagram/post-1.jpg",
+    "assets/instagram/post-2.jpg",
+    "assets/instagram/post-5.jpg"
+  ],
+  "servesCuisine": ["Smoothies", "Shakes", "Bebidas saludables"],
+  "menu": "https://bartidobar.com/#galeria",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle San Onofre 2",
+    "addressLocality": "Madrid",
+    "addressRegion": "Comunidad de Madrid",
+    "postalCode": "28004",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.4197,
+    "longitude": -3.7003
+  },
+  "hasMap": "https://maps.google.com/?q=Calle+San+Onofre+2+Madrid",
+  "sameAs": [
+    "https://www.instagram.com/bartidobar/",
+    "https://maps.google.com/?q=Bartido+Calle+San+Onofre+2+Madrid"
+  ],
+  "priceRange": "€",
+  "areaServed": "Madrid"
+}
+</script>
+
+<!-- Schema Markup: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://bartidobar.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Galería", "item": "https://bartidobar.com/#galeria" },
+    { "@type": "ListItem", "position": 3, "name": "Contacto", "item": "https://bartidobar.com/#contacto" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Three.js + Vanta.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+<!-- Vanilla-Tilt -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #27AE60;
+    --green-dark: #1a7d43;
+    --green-light: #d4f5e2;
+    --pink: #E8507A;
+    --purple: #6B4EBB;
+    --yellow: #F5C842;
+    --blue: #5BA0D0;
+    --choco: #A0714A;
+    --bg: #ffffff;
+    --bg2: #f7f9f7;
+    --bg3: #f0f4f0;
+    --card: #ffffff;
+    --text: #111111;
+    --text-muted: #6b7280;
+    --border: rgba(0,0,0,0.08);
+    --shadow: rgba(0,0,0,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    width: 20px; height: 20px;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s, opacity 0.2s;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-dot {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #f0f4f0; }
+  ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--green-dark) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 10% 40%, rgba(39,174,96,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 85% 20%, rgba(232,80,122,0.06) 0%, transparent 55%),
+      radial-gradient(ellipse 35% 35% at 70% 85%, rgba(245,200,66,0.07) 0%, transparent 50%),
+      #ffffff;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* INSTAGRAM CARD */
+  .ig-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.1), 0 20px 60px rgba(39,174,96,0.08);
+  }
+  .ig-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--yellow), var(--pink), var(--purple), var(--blue));
+  }
+
+  .ig-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .ig-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .ig-dot.red { background: #ff5f57; }
+  .ig-dot.yellow { background: #febc2e; }
+  .ig-dot.green { background: #28c840; }
+  .ig-handle-bar {
+    flex: 1;
+    background: var(--bg2);
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .ig-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .ig-avatar-wrap {
+    position: relative;
+    width: 80px; height: 80px;
+    flex-shrink: 0;
+  }
+  .ig-avatar-ring {
+    position: absolute; inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #9B59B6, #2ECC71, #F1C40F);
+    background-size: 300%;
+    animation: ringRotate 3s linear infinite;
+  }
+  @keyframes ringRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .ig-avatar {
+    position: absolute; inset: 3px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .ig-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .ig-name-block h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .verified {
+    width: 20px; height: 20px;
+    background: linear-gradient(135deg, #4b9ff2, #1877f2);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(24,119,242,0.4);
+  }
+  .verified svg { width: 12px; height: 12px; }
+  .ig-handle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+  .ig-handle a { color: var(--green); text-decoration: none; }
+
+  .ig-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.2rem;
+  }
+  .ig-stat { text-align: center; }
+  .ig-stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .ig-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .ig-bio {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+
+  .ig-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .ig-btn {
+    flex: 1;
+    padding: 0.55rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s;
+  }
+  .ig-btn.primary {
+    background: var(--green);
+    color: #0a0f0a;
+  }
+  .ig-btn.primary:hover { background: var(--green-light); }
+  .ig-btn.secondary {
+    background: var(--bg2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .ig-btn.secondary:hover { background: var(--bg3); }
+
+  /* MINI GRID */
+  .ig-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .ig-mini-grid-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  .ig-mini-grid-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .ig-mini-grid-item:hover img { transform: scale(1.05); }
+
+  /* HERO RIGHT */
+  .hero-content { padding: 2rem 0; }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(39,174,96,0.08);
+    border: 1px solid rgba(39,174,96,0.25);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.04em;
+    color: var(--text);
+  }
+  .hero-title span { color: var(--green); }
+  .hero-title em { color: var(--purple); font-style: normal; }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--green);
+    color: #0a0f0a;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(46,204,113,0.4);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid var(--text);
+    color: var(--text);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn-outline:hover {
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateY(-2px);
+  }
+
+  .hero-floating {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .hero-pill .icon { font-size: 1.1rem; }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* ABOUT */
+  .about { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    position: relative;
+  }
+  .about-photo {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border: 1px solid var(--border);
+  }
+  .about-photo:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+  .about-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .about-photo:hover img { transform: scale(1.05); }
+
+  .about-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+  .badge {
+    background: var(--green-light);
+    border: 1px solid rgba(39,174,96,0.2);
+    color: var(--green-dark);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  /* GALLERY */
+  .gallery { background: var(--bg); border-top: 1px solid var(--border); }
+  .gallery-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  .gallery-grid {
+    columns: 3;
+    gap: 12px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,15,10,0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span { color: var(--green); font-size: 0.8rem; font-weight: 600; }
+
+  /* METRICS */
+  .metrics { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .metric-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 16px var(--shadow);
+  }
+  .metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(39,174,96,0.12);
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--yellow), var(--pink), var(--purple));
+  }
+  .metric-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .metric-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .metric-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--bg); border-top: 1px solid var(--border); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-form {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 20px var(--shadow);
+  }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%;
+    background: var(--green);
+    color: #0a0f0a;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .form-submit:hover {
+    background: var(--green-light);
+    transform: translateY(-2px);
+  }
+
+  .contact-info { padding-top: 1rem; }
+  .contact-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .contact-info p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    padding: 1rem 1.2rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.3s;
+    font-weight: 500;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .contact-link:hover {
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateX(4px);
+  }
+  .contact-link-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-link-icon.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 1rem;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--green); }
+  .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+
+  /* PARALLAX SECTION */
+  .parallax-banner {
+    background: var(--green);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .parallax-banner .big-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .parallax-banner p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ANIMATIONS — GSAP handles opacity/transform, CSS solo para fallback */
+  .fade-up { opacity: 1; }
+  .stagger-item { opacity: 1; }
+
+  /* TICKER */
+  .ticker-wrap {
+    background: var(--green);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .ticker-track {
+    display: inline-flex;
+    animation: ticker 22s linear infinite;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ticker-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; flex-shrink: 0; }
+
+  /* SABORES */
+  .sabores { background: var(--bg); border-top: 1px solid var(--border); }
+  .sabores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    max-width: 960px;
+  }
+  .sabor-card {
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+    border: 1px solid rgba(0,0,0,0.06);
+    aspect-ratio: 3/4;
+    background: #f0f4f0;
+  }
+  .sabor-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+  .sabor-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .sabor-card:hover img { transform: scale(1.08); }
+  .sabor-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.5rem;
+  }
+  .sabor-emoji { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+  .sabor-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .sabor-desc { font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .sabor-tag {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--green);
+    border-radius: 50px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px; height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE NAV OVERLAY */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--green); }
+  .nav-mobile .nav-cta {
+    background: var(--green);
+    color: #fff !important;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+  }
+
+  /* HIDE CURSOR ON TOUCH */
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor, .cursor-dot { display: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .ig-card { order: -1; }
+    .about-grid { grid-template-columns: 1fr; }
+    .gallery-grid { columns: 2; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .sabores-grid { grid-template-columns: repeat(2, 1fr); }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 4rem 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .gallery-grid { columns: 1; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.2rem; }
+    .ig-mini-grid { grid-template-columns: repeat(3, 1fr); }
+    .sabores-grid { grid-template-columns: 1fr; }
+    section { padding: 3rem 1.2rem; }
+    .hero { padding: 5rem 1.2rem 3rem; }
+    .parallax-banner { padding: 3rem 1.2rem; }
+    .contact-form { padding: 1.5rem; }
+    .hero-floating { gap: 1rem; }
+    .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PWA INSTALL BANNER -->
+<div id="installBanner" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff;border:1px solid rgba(39,174,96,0.2);border-radius:16px;padding:1rem 1.5rem;gap:1rem;align-items:center;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.12);max-width:90vw;">
+  <span style="font-size:1.5rem">🥤</span>
+  <div style="flex:1">
+    <div style="font-weight:700;font-size:0.9rem;color:#111">Añade Bartido a tu pantalla</div>
+    <div style="font-size:0.75rem;color:#6b7280">Acceso rápido desde tu móvil</div>
+  </div>
+  <button id="installBtn" style="background:#27AE60;color:#fff;border:none;padding:0.5rem 1rem;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;">Instalar</button>
+  <button id="dismissInstall" style="background:transparent;border:none;color:#6b7280;cursor:pointer;font-size:1.2rem;padding:0.2rem">✕</button>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap" style="margin-top:0;position:relative;z-index:99;">
+  <div class="ticker-track">
+    <span class="ticker-item">The sound of blending<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Best Blend in Madrid<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Blend Your Mind<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Más que energía, es vitalidad real<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Shake &amp; Smoothies<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Fruta fresca al momento<span class="ticker-dot"></span></span>
+    <span class="ticker-item">The sound of blending<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Best Blend in Madrid<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Blend Your Mind<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Más que energía, es vitalidad real<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Shake &amp; Smoothies<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Fruta fresca al momento<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#about" onclick="closeMobileNav()">Nosotros</a>
+  <a href="#sabores" onclick="closeMobileNav()">Sabores</a>
+  <a href="#galeria" onclick="closeMobileNav()">Galería</a>
+  <a href="#contacto" onclick="closeMobileNav()">Contacto</a>
+  <a href="https://www.instagram.com/bartidobar/" target="_blank" class="nav-cta" onclick="closeMobileNav()">Instagram</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Bartido</div>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#sabores">Sabores</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://www.instagram.com/bartidobar/" target="_blank" class="nav-cta">Instagram</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menú" onclick="toggleMobileNav()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid container">
+
+    <!-- IG CARD -->
+    <div class="ig-card fade-up">
+      <div class="ig-card-header">
+        <div class="ig-dot red"></div>
+        <div class="ig-dot yellow"></div>
+        <div class="ig-dot green"></div>
+        <div class="ig-handle-bar">instagram.com/bartidobar</div>
+      </div>
+
+      <div class="ig-profile-row">
+        <div class="ig-avatar-wrap">
+          <div class="ig-avatar-ring"></div>
+          <div class="ig-avatar">
+            <img src="assets/instagram/profile.jpg" alt="Bartido" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2274%22 height=%2274%22><rect width=%2274%22 height=%2274%22 fill=%22%232ECC71%22/><text x=%2237%22 y=%2245%22 text-anchor=%22middle%22 font-size=%2228%22>🥤</text></svg>'">
+          </div>
+        </div>
+        <div class="ig-name-block">
+          <h2>Bartido
+            <span class="verified">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </span>
+          </h2>
+          <div class="ig-handle"><a href="https://www.instagram.com/bartidobar/" target="_blank">@bartidobar</a></div>
+        </div>
+      </div>
+
+      <div class="ig-stats">
+        <div class="ig-stat">
+          <div class="ig-stat-num">39</div>
+          <div class="ig-stat-label">Posts</div>
+        </div>
+        <div class="ig-stat">
+          <div class="ig-stat-num">150</div>
+          <div class="ig-stat-label">Seguidores</div>
+        </div>
+        <div class="ig-stat">
+          <div class="ig-stat-num">75</div>
+          <div class="ig-stat-label">Seguidos</div>
+        </div>
+      </div>
+
+      <div class="ig-bio">
+        🥤 Shakes &amp; Smoothies<br>
+        🍓 Preparados al momento con fruta fresca<br>
+        🌱 Natural &amp; Saludable
+      </div>
+
+      <div class="ig-actions">
+        <a href="https://www.instagram.com/bartidobar/" target="_blank" class="ig-btn primary">Seguir</a>
+        <a href="#contacto" class="ig-btn secondary">Contactar</a>
+        <a href="https://www.instagram.com/bartidobar/" target="_blank" class="ig-btn secondary">Ver perfil</a>
+      </div>
+
+      <!-- MINI GRID -->
+      <div class="ig-mini-grid">
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-1.jpg" alt="Post 1" onerror="this.parentElement.style.background='#131f13'"></div>
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-2.jpg" alt="Post 2" onerror="this.parentElement.style.background='#131f13'"></div>
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-3.jpg" alt="Post 3" onerror="this.parentElement.style.background='#131f13'"></div>
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-4.jpg" alt="Post 4" onerror="this.parentElement.style.background='#131f13'"></div>
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-5.jpg" alt="Post 5" onerror="this.parentElement.style.background='#131f13'"></div>
+        <div class="ig-mini-grid-item"><img src="assets/instagram/post-6.jpg" alt="Post 6" onerror="this.parentElement.style.background='#131f13'"></div>
+      </div>
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+      <div class="hero-tag fade-up">Calle San Onofre 2 · Madrid</div>
+      <h1 class="hero-title fade-up fade-up-2">
+        <span>Blend</span><br>
+        Your<br>
+        <em>Mind.</em>
+      </h1>
+      <p class="hero-desc fade-up fade-up-3">
+        Más que energía, es vitalidad real. Shakes y smoothies preparados al momento con fruta fresca. Sin concentrados, sin aditivos — solo sabor puro.
+      </p>
+      <div class="hero-btns fade-up fade-up-4">
+        <a href="#galeria" class="btn-primary">Ver nuestra galería</a>
+        <a href="https://www.instagram.com/bartidobar/" target="_blank" class="btn-outline">Síguenos en IG</a>
+      </div>
+      <div class="hero-floating fade-up">
+        <div class="hero-pill"><span class="icon">🍓</span> Fruta fresca</div>
+        <div class="hero-pill"><span class="icon">🌱</span> Natural</div>
+        <div class="hero-pill"><span class="icon">⚡</span> Al momento</div>
+        <div class="hero-pill"><span class="icon">📍</span> Madrid</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARALLAX BANNER -->
+<div class="parallax-banner" id="parallaxBanner">
+  <div class="big-text">100% Natural</div>
+  <p>Cada sorbo es pura fruta. Sin azúcares añadidos, sin conservantes, sin compromiso.</p>
+  <a href="#galeria" style="display:inline-flex;align-items:center;gap:0.5rem;background:#fff;color:var(--green);padding:0.9rem 2rem;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.3s;">Descubre la carta</a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photos fade-up">
+        <div class="about-photo"><img src="assets/instagram/post-7.jpg" alt="Bartido" onerror="this.parentElement.style.background='#1a2f1a'"></div>
+        <div class="about-photo"><img src="assets/instagram/post-8.jpg" alt="Bartido" onerror="this.parentElement.style.background='#1a2f1a'"></div>
+        <div class="about-photo"><img src="assets/instagram/post-9.jpg" alt="Bartido" onerror="this.parentElement.style.background='#1a2f1a'"></div>
+      </div>
+      <div class="fade-up fade-up-2">
+        <div class="section-label">Quiénes somos</div>
+        <h2 class="section-title">Hecho con fruta,<br>hecho con cariño</h2>
+        <p class="section-sub">
+          En Bartido creemos que lo mejor siempre viene de la naturaleza. Cada shake y smoothie que preparamos nace de fruta fresca seleccionada, batida al momento para que llegue a tus manos con todo su sabor y sus nutrientes intactos.
+        </p>
+        <div class="about-badges">
+          <span class="badge">🥤 Shakes</span>
+          <span class="badge">🍹 Smoothies</span>
+          <span class="badge">🍓 Fruta fresca</span>
+          <span class="badge">🌱 Natural</span>
+          <span class="badge">⚡ Al momento</span>
+          <span class="badge">💚 Sin aditivos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="gallery-header">
+      <div>
+        <div class="section-label">Nuestras creaciones</div>
+        <h2 class="section-title fade-up">Galería</h2>
+      </div>
+      <a href="https://www.instagram.com/bartidobar/" target="_blank" class="btn-outline">Ver todo en Instagram</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-5.jpg" alt="Smoothie bowls"><div class="gallery-overlay"><span>🥤 Nuestros sabores</span></div></div>
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-8.jpg" alt="Açaí Boost"><div class="gallery-overlay"><span>🫐 Açaí Boost</span></div></div>
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-2.jpg" alt="Cacao Power"><div class="gallery-overlay"><span>🍫 Cacao Power</span></div></div>
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-11.jpg" alt="BB Avocado"><div class="gallery-overlay"><span>🥑 BB Avocado</span></div></div>
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-7.jpg" alt="Açaí"><div class="gallery-overlay"><span>🫐 Açaí Orgánico</span></div></div>
+      <div class="gallery-item stagger-item"><img src="assets/instagram/post-9.jpg" alt="Boost"><div class="gallery-overlay"><span>⚡ Boost</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="metrics">
+  <div class="container">
+    <div class="section-label fade-up">En números</div>
+    <h2 class="section-title fade-up">Bartido en datos</h2>
+    <div class="metrics-grid">
+      <div class="metric-card stagger-item">
+        <div class="metric-icon">📸</div>
+        <div class="metric-num" data-target="39">0</div>
+        <div class="metric-label">Publicaciones</div>
+      </div>
+      <div class="metric-card stagger-item">
+        <div class="metric-icon">👥</div>
+        <div class="metric-num" data-target="150">0</div>
+        <div class="metric-label">Seguidores</div>
+      </div>
+      <div class="metric-card stagger-item">
+        <div class="metric-icon">🥤</div>
+        <div class="metric-num" data-target="100">0</div>
+        <div class="metric-label">% Natural</div>
+      </div>
+      <div class="metric-card stagger-item">
+        <div class="metric-icon">⚡</div>
+        <div class="metric-num" data-target="0">0<span style="font-size:1rem">min</span></div>
+        <div class="metric-label">Tiempo de espera</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SABORES -->
+<section class="sabores" id="sabores">
+  <div class="container">
+    <div class="section-label">Nuestros sabores</div>
+    <h2 class="section-title">Elige tu <span style="color:var(--green)">blend</span></h2>
+    <p class="section-sub">Cada sabor es una experiencia. Todos preparados al momento con fruta real.</p>
+    <div class="sabores-grid">
+      <div class="sabor-card">
+        <img src="assets/instagram/post-8.jpg" alt="Açaí Boost">
+        <div class="sabor-overlay">
+          <span class="sabor-emoji">🫐</span>
+          <div class="sabor-name">Açaí Boost</div>
+          <div class="sabor-desc">Açaí orgánico, plátano y frutos rojos. Más que energía, es vitalidad real.</div>
+        </div>
+        <div class="sabor-tag">MÁS PEDIDO</div>
+      </div>
+      <div class="sabor-card">
+        <img src="assets/instagram/post-11.jpg" alt="BB Avocado">
+        <div class="sabor-overlay">
+          <span class="sabor-emoji">🥑</span>
+          <div class="sabor-name">BB Avocado</div>
+          <div class="sabor-desc">Aguacate, plátano y canela. Cremoso y reconfortante.</div>
+        </div>
+        <div class="sabor-tag">FAVORITO</div>
+      </div>
+      <div class="sabor-card">
+        <img src="assets/instagram/post-2.jpg" alt="Cacao Power">
+        <div class="sabor-overlay">
+          <span class="sabor-emoji">🍫</span>
+          <div class="sabor-name">Cacao Power</div>
+          <div class="sabor-desc">Cacao puro, plátano y frutos secos. El indulgente saludable.</div>
+        </div>
+        <div class="sabor-tag">CLÁSICO</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.9rem">Y muchos más sabores en <a href="https://www.instagram.com/bartidobar/" target="_blank" style="color:var(--green);font-weight:600">@bartidobar</a> ✨</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-label fade-up">Habla con nosotros</div>
+    <h2 class="section-title fade-up">Contacto</h2>
+    <div class="contact-grid" style="margin-top:3rem">
+      <div class="contact-form fade-up">
+        <h3 style="font-family:'Clash Display',sans-serif;font-size:1.4rem;margin-bottom:1.5rem;">Escríbenos</h3>
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" placeholder="¿Cómo te llamas?">
+        </div>
+        <div class="form-group">
+          <label>Email o WhatsApp</label>
+          <input type="text" placeholder="Para responderte">
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="¿Tienes alguna pregunta, sugerencia o quieres colaborar?"></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('¡Gracias! Nos ponemos en contacto contigo pronto. 🥤')">Enviar mensaje</button>
+      </div>
+      <div class="contact-info fade-up fade-up-2">
+        <h3>¿Dónde encontrarnos?</h3>
+        <p>Estamos en el centro de Madrid. Pásate a por tu shake o smoothie favorito, preparado al momento con fruta fresca.</p>
+        <div class="contact-links">
+          <a href="https://maps.google.com/?q=Calle+San+Onofre+2+Madrid" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:linear-gradient(135deg,#4285F4,#34A853)">📍</div>
+            <div>
+              <div style="font-weight:600">Calle San Onofre 2, Madrid</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Ver en Google Maps →</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/bartidobar/" target="_blank" class="contact-link">
+            <div class="contact-link-icon ig">📸</div>
+            <div>
+              <div style="font-weight:600">@bartidobar</div>
+              <div style="font-size:0.8rem;color:var(--text-muted)">Instagram · 150 seguidores</div>
+            </div>
+          </a>
+        </div>
+        <!-- Mapa embed -->
+        <div style="margin-top:1.5rem;border-radius:16px;overflow:hidden;border:1px solid var(--border);">
+          <iframe
+            src="https://maps.google.com/maps?q=Calle+San+Onofre+2,+Madrid&output=embed&z=16"
+            width="100%" height="220" style="border:0;display:block;filter:grayscale(0.3) invert(0.9) hue-rotate(140deg);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Bartido</div>
+  <ul class="footer-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#sabores">Sabores</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://www.instagram.com/bartidobar/" target="_blank">Instagram</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Bartido · Shakes &amp; Smoothies · Hecho con 🍓</div>
+</footer>
+
+<script>
+// ── GSAP REGISTER ──────────────────────────────────────────
+gsap.registerPlugin(ScrollTrigger);
+
+// ── VANTA.JS — hero background 3D waves ────────────────────
+VANTA.WAVES({
+  el: '.hero-bg',
+  THREE: THREE,
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200,
+  minWidth: 200,
+  scale: 1.0,
+  scaleMobile: 1.0,
+  color: 0xd4f5e2,
+  shininess: 20,
+  waveHeight: 10,
+  waveSpeed: 0.4,
+  zoom: 0.9
+});
+
+// ── VANILLA-TILT — Instagram card 3D tilt ──────────────────
+VanillaTilt.init(document.querySelector('.ig-card'), {
+  max: 8,
+  speed: 600,
+  glare: true,
+  'max-glare': 0.12,
+  scale: 1.02,
+  perspective: 1200
+});
+
+// ── GSAP HERO — entrada inicial ────────────────────────────
+const heroTl = gsap.timeline({ delay: 0.2 });
+heroTl
+  .from('.hero-tag',      { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' })
+  .from('.hero-title',    { opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+  .from('.hero-desc',     { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+  .from('.hero-btns',     { opacity: 0, y: 20, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+  .from('.hero-floating', { opacity: 0, y: 20, duration: 0.5, ease: 'power3.out' }, '-=0.2')
+  .from('.ig-card',       { opacity: 0, x: 60, duration: 0.9, ease: 'power3.out' }, '-=0.8');
+
+// ── GSAP NAV ───────────────────────────────────────────────
+gsap.from('nav', { opacity: 0, y: -30, duration: 0.6, ease: 'power3.out', delay: 0.1 });
+
+// ── GSAP SCROLL ANIMATIONS ─────────────────────────────────
+
+// Parallax banner big text
+gsap.from('.parallax-banner .big-text', {
+  scrollTrigger: { trigger: '.parallax-banner', start: 'top 80%' },
+  opacity: 0, scale: 0.7, duration: 1, ease: 'power3.out'
+});
+gsap.from('.parallax-banner p, .parallax-banner .btn-primary', {
+  scrollTrigger: { trigger: '.parallax-banner', start: 'top 70%' },
+  opacity: 0, y: 40, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+});
+
+// About section
+gsap.from('.about-photos .about-photo', {
+  scrollTrigger: { trigger: '.about', start: 'top 70%' },
+  opacity: 0, y: 60, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+});
+gsap.from('.about .section-label, .about .section-title, .about .section-sub, .about-badges', {
+  scrollTrigger: { trigger: '.about', start: 'top 65%' },
+  opacity: 0, x: 50, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+});
+
+// Gallery — stagger masonry
+gsap.from('.gallery-item', {
+  scrollTrigger: { trigger: '.gallery-grid', start: 'top 80%' },
+  opacity: 0, y: 50, scale: 0.95, duration: 0.6, stagger: 0.08, ease: 'power3.out'
+});
+
+// Gallery header
+gsap.from('.gallery-header', {
+  scrollTrigger: { trigger: '.gallery', start: 'top 80%' },
+  opacity: 0, y: 30, duration: 0.7, ease: 'power3.out'
+});
+
+// Metrics cards
+gsap.from('.metric-card', {
+  scrollTrigger: { trigger: '.metrics-grid', start: 'top 80%' },
+  opacity: 0, y: 60, scale: 0.9, duration: 0.6, stagger: 0.12, ease: 'back.out(1.4)'
+});
+
+// Sabores cards
+gsap.from('.sabor-card', {
+  scrollTrigger: { trigger: '.sabores-grid', start: 'top 80%' },
+  opacity: 0, y: 50, scale: 0.92, duration: 0.6, stagger: 0.1, ease: 'back.out(1.3)'
+});
+gsap.from('.sabores .section-label, .sabores .section-title, .sabores .section-sub', {
+  scrollTrigger: { trigger: '.sabores', start: 'top 80%' },
+  opacity: 0, y: 30, duration: 0.7, stagger: 0.1, ease: 'power3.out'
+});
+
+// Contact
+gsap.from('.contact-form', {
+  scrollTrigger: { trigger: '.contact', start: 'top 75%' },
+  opacity: 0, x: -60, duration: 0.9, ease: 'power3.out'
+});
+gsap.from('.contact-info', {
+  scrollTrigger: { trigger: '.contact', start: 'top 75%' },
+  opacity: 0, x: 60, duration: 0.9, ease: 'power3.out'
+});
+
+// ── GSAP COUNTER ───────────────────────────────────────────
+document.querySelectorAll('.metric-num[data-target]').forEach(el => {
+  const target = parseInt(el.dataset.target);
+  if (isNaN(target)) return;
+  const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+  ScrollTrigger.create({
+    trigger: el,
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      gsap.to({ val: 0 }, {
+        val: target, duration: 1.8, ease: 'power2.out',
+        onUpdate: function() { el.innerHTML = Math.round(this.targets()[0].val) + suffix; }
+      });
+    }
+  });
+});
+
+// ── GSAP PARALLAX SCROLL ───────────────────────────────────
+gsap.to('.parallax-banner', {
+  backgroundPositionY: '30%',
+  scrollTrigger: { trigger: '.parallax-banner', start: 'top bottom', end: 'bottom top', scrub: true }
+});
+
+// ── CURSOR
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.12;
+  cursorY += (mouseY - cursorY) * 0.12;
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, button, .gallery-item').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%,-50%) scale(2)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%,-50%) scale(1)');
+});
+
+
+// MOBILE NAV
+function toggleMobileNav() {
+  const overlay = document.getElementById('navMobile');
+  const btn = document.getElementById('navHamburger');
+  const isOpen = overlay.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeMobileNav() {
+  document.getElementById('navMobile').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// NAV scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(255,255,255,0.98)';
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+  } else {
+    nav.style.background = 'rgba(255,255,255,0.85)';
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// PWA - Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+
+// PWA - Install banner
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = document.getElementById('installBanner');
+  if (banner) banner.style.display = 'flex';
+});
+document.getElementById('installBtn')?.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  document.getElementById('installBanner').style.display = 'none';
+});
+document.getElementById('dismissInstall')?.addEventListener('click', () => {
+  document.getElementById('installBanner').style.display = 'none';
+});
+</script>
+</body>
+</html>
